@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Timmy Nicholas (Dexter) | UI/UX Designer</title>
+<script>document.documentElement.className='js'</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070a14;--bg2:#0e1428;--ink:#f3f5ff;--mut:#9aa3c7;--red:#e62429;--blue:#2b59c3;--line:rgba(255,255,255,.16);--web:255,255,255;--card:#101833;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef1f9;--bg2:#dfe6f6;--ink:#0b1020;--mut:#4a5478;--line:rgba(11,16,32,.18);--web:11,16,32;--card:#fff}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Sora,system-ui,sans-serif;overflow-x:hidden}
+#web{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,footer{position:relative;z-index:1}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 70%,transparent)}
+.logo{font:400 30px Bangers,Impact,sans-serif;letter-spacing:2px;color:var(--ink);text-decoration:none}
+.logo span{color:var(--red)}
+.links{display:flex;gap:22px;align-items:center}
+.links a{color:var(--mut);text-decoration:none;font-size:14px}
+.links a:hover{color:var(--ink)}
+#bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:linear-gradient(90deg,var(--red),var(--blue));transform:scaleX(0);transform-origin:0}
+.btn{display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:999px;border:2px solid var(--red);background:var(--red);color:#fff;font:600 14px Sora,sans-serif;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px) rotate(-1deg);box-shadow:0 8px 0 rgba(230,36,41,.35)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.sec{min-height:100vh;padding:120px 5vw 80px;max-width:1200px;margin:auto}
+.js .sec{clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path 1.1s cubic-bezier(.7,0,.2,1)}
+.js .sec.in{clip-path:polygon(-5% -5%,105% -5%,105% 105%,-5% 105%)}
+.js .rv{opacity:0;transform:translateY(34px) skewY(2deg);transition:opacity .8s,transform .8s;transition-delay:calc(.35s + var(--i,0)*.09s)}
+.js .in .rv{opacity:1;transform:none}
+h1,h2{font-family:Bangers,Impact,sans-serif;font-weight:400;letter-spacing:2px;line-height:.95;text-shadow:4px 4px 0 var(--blue)}
+h1{font-size:clamp(52px,9vw,110px)}
+h2{font-size:clamp(40px,6vw,72px);margin-bottom:36px}
+.lead{color:var(--mut);max-width:52ch;margin:22px 0 28px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative}
+.pic{position:relative;aspect-ratio:1;width:min(100%,420px);margin:auto}
+.pic .ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite;stroke:var(--ink);opacity:.35;fill:none}
+.av{position:absolute;inset:13%;border-radius:50%;overflow:hidden;border:4px solid var(--red);box-shadow:0 0 0 8px var(--bg),0 0 60px rgba(230,36,41,.35)}
+.av svg{width:100%;height:100%;display:block}
+.soc{display:flex;gap:10px}
+.soc a{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:.25s}
+.soc a:hover{background:var(--red);border-color:var(--red);transform:translateY(-4px) rotate(8deg)}
+.soc svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.drop{position:absolute;top:-120px;right:2%;width:44px;animation:drop 1.8s cubic-bezier(.3,1.5,.5,1) .4s both}
+.drop .sw{transform-origin:50% 0;animation:sw 4s ease-in-out 2.2s infinite alternate}
+.th{width:2px;height:calc(120px + 18vh);background:var(--ink);margin:auto;opacity:.7}
+.sp{width:44px;height:44px;color:var(--red);display:block}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;transform:perspective(900px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .2s,border-color .3s}
+.card:hover{border-color:var(--red)}
+.card.w{grid-column:span 2}
+.card h3{font:600 20px Sora,sans-serif;margin:16px 4px 2px}
+.card .t{color:var(--red);font-size:13px;margin:0 4px 6px;font-weight:600}
+.card p{color:var(--mut);font-size:14px;margin:0 4px 6px}
+.stage{height:250px;border-radius:14px;display:flex;justify-content:center;align-items:center;gap:14px;overflow:hidden;background:linear-gradient(135deg,var(--a),var(--b))}
+.card.w .stage{height:290px}
+.ph{width:110px;height:200px;border-radius:20px;background:#0a0f20;border:3px solid #000;padding:10px;display:flex;flex-direction:column;gap:7px;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.ph i{height:8px;width:40%;border-radius:4px;background:var(--a)}
+.ph b{height:36px;border-radius:9px;background:linear-gradient(90deg,var(--a),var(--b))}
+.ph u{height:18px;border-radius:6px;background:rgba(255,255,255,.14)}
+.br{width:84%;height:82%;border-radius:10px;background:#0a0f20;display:grid;grid-template-columns:24% 1fr;gap:8px;padding:8px;border-top:14px solid #1b2548}
+.br .sb{background:rgba(255,255,255,.1);border-radius:6px}
+.ch{display:flex;align-items:flex-end;gap:6px}
+.ch i{flex:1;height:var(--h);border-radius:4px 4px 0 0;background:linear-gradient(var(--a),var(--b));transform:scaleY(0);transform-origin:bottom;transition:transform .8s calc(.7s + var(--n)*.08s)}
+.in .ch i{transform:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 26px}
+.chip{padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--mut)}
+.two h3{font:600 15px Sora,sans-serif}
+.tl{list-style:none;padding:0 0 0 22px;border-left:2px solid var(--red)}
+.tl li{margin-bottom:22px;position:relative}
+.tl li:before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px var(--bg)}
+.tl b{display:block}.tl span{color:var(--mut);font-size:14px}
+.cta{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.foot{position:relative;overflow:hidden;border-top:1px solid var(--line);padding:130px 5vw 30px;background:linear-gradient(var(--bg),var(--bg2));text-align:center}
+.foot .sw2{position:absolute;top:0;left:50%;width:44px;margin-left:-22px;transform-origin:50% 0;animation:sw 3.6s ease-in-out infinite alternate}
+.foot .th{height:90px}
+.cw{position:absolute;top:0;width:200px;height:200px;stroke:var(--ink);fill:none;opacity:.4;stroke-dasharray:700;animation:draw 6s ease-in-out infinite alternate}
+.cw.l{left:0}.cw.r{right:0;transform:scaleX(-1)}
+.mq{overflow:hidden;white-space:nowrap;margin:20px 0 30px}
+.mq div{display:inline-block;font:400 clamp(44px,9vw,100px) Bangers,Impact,sans-serif;color:transparent;-webkit-text-stroke:1.5px var(--ink);opacity:.6;animation:mq 28s linear infinite}
+.mq div:hover{color:var(--red);-webkit-text-stroke-color:var(--red)}
+.foot small{color:var(--mut)}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:12px;font-size:14px;opacity:0;transition:.4s;z-index:20}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:-12px 0 26px}
+.filters button{font:600 13px Sora,sans-serif;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;transition:.2s}
+.filters button.on,.filters button:hover{background:var(--red);border-color:var(--red);color:#fff}
+.card{cursor:pointer}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.steps div{border-top:3px solid var(--red);padding-top:12px}
+.steps b{font:400 26px Bangers,Impact,sans-serif;letter-spacing:1px;display:block}
+.steps span{color:var(--mut);font-size:14px}
+.rev{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.lab{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:14px}
+.lab svg{width:100%;height:auto;display:block;border-radius:14px}
+.lab p{color:var(--mut);font-size:13px;margin:10px 4px 0}
+.rc{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:16px;padding:18px 20px;margin-bottom:16px}
+.rc q{display:block;quotes:none;margin:6px 0 10px}
+.rc small{color:var(--mut)}
+.stars{color:#f5b301;letter-spacing:3px}
+.bub{animation:fl 3s ease-in infinite}
+form.f{display:grid;gap:12px;width:min(100%,640px);margin-top:36px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px}
+.f input,.f textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:400 15px Sora,sans-serif}
+.f input:focus-visible,.f textarea:focus-visible{outline:3px solid var(--blue)}
+dialog{margin:auto;width:min(92vw,560px);border:1px solid var(--line);border-radius:22px;background:var(--card);color:var(--ink);padding:26px}
+dialog::backdrop{background:rgba(3,5,12,.7);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .35s cubic-bezier(.3,1.4,.5,1)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.facts div{border:1px solid var(--line);border-radius:12px;padding:10px;font-size:13px;color:var(--mut)}
+.facts b{display:block;color:var(--ink);font-size:15px}
+@keyframes fl{from{transform:translateY(0);opacity:1}to{transform:translateY(-26px);opacity:0}}
+@keyframes pop{from{transform:scale(.85) rotate(-2deg);opacity:0}}
+@media(max-width:900px){.rev{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes drop{from{transform:translateY(-130%)}to{transform:none}}
+@keyframes sw{from{transform:rotate(9deg)}to{transform:rotate(-9deg)}}
+@keyframes draw{from{stroke-dashoffset:700}to{stroke-dashoffset:0}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.hero,.two{grid-template-columns:1fr}.drop{display:none}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.card.w{grid-column:auto}.links a:not(.btn){display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .sec{clip-path:none}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="sp" viewBox="0 0 40 40"><g fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="20" cy="24" rx="6" ry="8"/><circle cx="20" cy="13" r="4.5"/><path fill="none" d="M15 20L5 12M14 24L3 24M15 28L5 36M25 20L35 12M26 24L37 24M25 28L35 36"/></g></symbol></defs></svg>
+<canvas id="web" aria-hidden="true"></canvas>
+<nav><a class="logo" href="#home">DEXTER<span>.</span></a><div class="links"><a href="#work">Work</a><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><button class="btn dl" type="button">Download resume</button></div><div id="bar"></div></nav>
+<main>
+<section class="sec hero" id="home">
+ <div class="drop" aria-hidden="true"><div class="sw"><div class="th"></div><svg class="sp"><use href="#sp"/></svg></div></div>
+ <div>
+  <h1 class="rv">Dexter designs interfaces that stick.</h1>
+  <p class="lead rv" style="--i:2">I'm Timmy Nicholas, a UI/UX designer who has shipped mobile and web products across fintech, health, e-commerce, SaaS and web3.</p>
+  <div class="row rv" style="--i:3"><a class="btn" href="#work">See my work</a><button class="btn ghost dl" type="button">Download resume</button></div>
+  <div class="soc rv" style="--i:4;margin-top:26px">
+   <a href="https://dribbble.com/" target="_blank" rel="noopener" aria-label="Dribbble"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5 7c5 1 10 1 14-2M3.5 13c6-2 11 0 14 6M9 3c3 4 5 9 5.500 17"/></svg></a>
+   <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+   <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6"/></svg></a>
+  </div>
+ </div>
+ <div class="pic rv" style="--i:2">
+  <svg class="ring" viewBox="0 0 200 200"><path d="M100 0V200M0 100H200M29 29L171 171M171 29L29 171"/><circle cx="100" cy="100" r="98"/><circle cx="100" cy="100" r="80"/></svg>
+  <div class="av"><svg viewBox="0 0 200 200" role="img" aria-label="Illustrated portrait of Dexter"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b59c3"/><stop offset="1" stop-color="#e62429"/></linearGradient></defs><rect width="200" height="200" fill="url(#g)"/><path d="M20 200c4-44 36-58 80-58s76 14 80 58z" fill="#0b1020"/><path d="M84 138h32v22q-16 10-32 0z" fill="#7a4a2e"/><ellipse cx="100" cy="95" rx="38" ry="46" fill="#8d5a3b"/><path d="M60 88c-4-40 22-52 42-52s46 12 38 52c-6-20-20-26-40-26s-34 6-40 26z" fill="#10131f"/><circle cx="85" cy="98" r="4" fill="#10131f"/><circle cx="115" cy="98" r="4" fill="#10131f"/><path d="M88 120q12 9 24 0" stroke="#10131f" stroke-width="3" fill="none" stroke-linecap="round"/><use href="#sp" x="86" y="166" width="28" height="28" style="color:#e62429"/></svg></div>
+ </div>
+</section>
+
+<section class="sec" id="work">
+ <h2 class="rv">Selected work</h2>
+ <div class="filters rv" style="--i:1"><button class="on" data-f="all">All</button><button data-f="mobile">Mobile</button><button data-f="web">Web</button><button data-f="web3">Web3</button></div>
+ <div class="grid" id="grid"></div>
+</section>
+
+<section class="sec" id="about">
+ <h2 class="rv">About Dexter</h2>
+ <div class="two">
+  <div class="rv" style="--i:1">
+   <p class="lead" style="margin-top:0">Six years of turning messy problems into clear screens. I design for phones and browsers, run research when it helps, and prototype in motion so teams can feel the idea before they build it.</p>
+   <h3>Niches</h3>
+   <div class="chips"><span class="chip">Fintech</span><span class="chip">Web3 and DeFi</span><span class="chip">E-commerce</span><span class="chip">Health</span><span class="chip">SaaS</span><span class="chip">Social</span></div>
+   <h3>Tools</h3>
+   <div class="chips"><span class="chip">Figma</span><span class="chip">Framer</span><span class="chip">ProtoPie</span><span class="chip">After Effects</span><span class="chip">Spline</span></div>
+  </div>
+  <ul class="tl rv" style="--i:2">
+   <li><b>Senior Product Designer, Nova Labs</b><span>2023 to now. Led design for a cross-border wallet.</span></li>
+   <li><b>Product Designer, Orbit Finance</b><span>2021 to 2023. Built the DEX and NFT marketplace UI.</span></li>
+   <li><b>UI Designer, Studio Kite</b><span>2019 to 2021. Mobile apps for startups in Africa and Europe.</span></li>
+  </ul>
+ </div>
+ <div class="steps rv" style="--i:3"><div><b>Discover</b><span>Interviews, audits and the real problem.</span></div><div><b>Define</b><span>Flows, goals and what to leave out.</span></div><div><b>Design</b><span>Wireframes, UI and motion prototypes.</span></div><div><b>Deliver</b><span>Clean handoff and launch support.</span></div></div>
+</section>
+
+<section class="sec" id="reviews">
+ <h2 class="rv">Lab reports</h2>
+ <div class="rev">
+  <div class="lab rv" style="--i:1">
+   <svg viewBox="0 0 320 260" role="img" aria-label="Caricature of Dexter in his design lab"><rect width="320" height="260" fill="#121a3a"/><path d="M0 78H320" stroke="#2b59c3" stroke-width="3"/><g stroke="#9aa3c7" stroke-width="2" fill="none"><rect x="26" y="40" width="22" height="38" rx="4"/><rect x="62" y="48" width="18" height="30" rx="4"/><rect x="94" y="36" width="24" height="42" rx="4"/></g><rect x="28" y="58" width="18" height="18" rx="3" fill="#e62429"/><rect x="64" y="62" width="14" height="14" rx="3" fill="#2b59c3"/><rect x="96" y="56" width="20" height="20" rx="3" fill="#22c55e"/><rect x="206" y="24" width="94" height="64" rx="6" fill="#0a0f20" stroke="#2b59c3" stroke-width="3"/><rect x="214" y="32" width="30" height="48" rx="3" fill="#1b2548"/><rect x="250" y="32" width="42" height="20" rx="3" fill="#e62429"/><rect x="250" y="58" width="20" height="22" rx="3" fill="#2b59c3"/><rect x="274" y="58" width="18" height="22" rx="3" fill="#1b2548"/><rect y="226" width="320" height="34" fill="#0a0f20"/><path d="M104 260c0-46 20-72 46-72s46 26 46 72z" fill="#f3f5ff"/><path d="M138 190l12 34 12-34z" fill="#e62429"/><use href="#sp" x="140" y="206" width="20" height="20" style="color:#fff"/><path d="M190 206l34-30" stroke="#f3f5ff" stroke-width="16" stroke-linecap="round"/><path d="M212 128h28l-3 32a5 5 0 0 1-5 5h-12a5 5 0 0 1-5-5z" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="3"/><path d="M214 142h24l-2 18a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4z" fill="#e62429"/><circle cx="226" cy="172" r="9" fill="#8d5a3b"/><circle class="bub" cx="222" cy="120" r="4" fill="#e62429"/><circle class="bub" style="animation-delay:1.2s" cx="234" cy="114" r="3" fill="#e62429"/><rect x="138" y="170" width="24" height="24" fill="#7a4a2e"/><circle cx="104" cy="134" r="9" fill="#8d5a3b"/><circle cx="196" cy="134" r="9" fill="#8d5a3b"/><ellipse cx="150" cy="130" rx="46" ry="50" fill="#8d5a3b"/><path d="M104 118c-6-46 22-58 46-58s52 12 46 58c-8-24-24-32-46-32s-38 8-46 32z" fill="#10131f"/><path d="M140 62l10-20 10 20z" fill="#10131f"/><path d="M116 108l30-6M154 102l30 6" stroke="#10131f" stroke-width="5" stroke-linecap="round"/><circle cx="132" cy="132" r="17" fill="rgba(255,255,255,.8)" stroke="#0b1020" stroke-width="4"/><circle cx="168" cy="132" r="17" fill="rgba(255,255,255,.8)" stroke="#0b1020" stroke-width="4"/><path d="M149 130h2" stroke="#0b1020" stroke-width="4"/><circle cx="136" cy="134" r="5" fill="#10131f"/><circle cx="172" cy="134" r="5" fill="#10131f"/><path d="M126 158q24 26 48 0z" fill="#fff" stroke="#10131f" stroke-width="3"/></svg>
+   <p>Dexter in his design lab, mid-experiment. Average client rating: 4.9 out of 5.</p>
+  </div>
+  <div>
+   <div class="rc rv" style="--i:1"><div class="stars">★★★★★</div><q>Dexter turned our tangled onboarding into three clear screens. Activation jumped within a month.</q><small>Amara Okoye, Head of Product, Nova Labs</small></div>
+   <div class="rc rv" style="--i:2"><div class="stars">★★★★★</div><q>He understands web3 users and explains gas fees better than our docs ever did.</q><small>Luca Ferreri, Founder, Orbit Finance</small></div>
+   <div class="rc rv" style="--i:3"><div class="stars">★★★★★</div><q>Fast, curious and great with motion. Every handoff to engineering was spotless.</q><small>Priya Nair, CTO, Atlas Logistics</small></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec cta" id="contact">
+ <h2 class="rv">Got a product to build? Let's weave it.</h2>
+ <p class="lead rv" style="--i:1">Open for product design roles, freelance projects and web3 collaborations.</p>
+ <div class="row rv" style="--i:2"><a class="btn" href="mailto:hello@dexter.design">Say hello</a><button class="btn ghost dl" type="button">Download resume</button><span class="chip">Available for new projects</span></div>
+ <form class="f rv" id="cf" style="--i:3"><input name="n" placeholder="Your name" aria-label="Your name" required><input name="e" type="email" placeholder="Your email" aria-label="Your email" required><textarea name="m" rows="4" placeholder="Tell Dexter about your product" aria-label="Message" required></textarea><button class="btn" type="submit">Send message</button></form>
+</section>
+</main>
+
+<footer class="foot">
+ <svg class="cw l" viewBox="0 0 160 160" aria-hidden="true"><path d="M0 0L160 0M0 0L150 55M0 0L115 115M0 0L55 150M0 0L0 160M50 0Q42 42 0 50M100 0Q85 85 0 100M150 0Q125 125 0 150"/></svg>
+ <svg class="cw r" viewBox="0 0 160 160" aria-hidden="true"><path d="M0 0L160 0M0 0L150 55M0 0L115 115M0 0L55 150M0 0L0 160M50 0Q42 42 0 50M100 0Q85 85 0 100M150 0Q125 125 0 150"/></svg>
+ <div class="sw2" aria-hidden="true"><div class="th"></div><svg class="sp"><use href="#sp"/></svg></div>
+ <div class="mq" aria-hidden="true"><div>FINTECH &bull; WEB3 &bull; MOBILE &bull; SAAS &bull; HEALTH &bull; E-COMMERCE &bull; FINTECH &bull; WEB3 &bull; MOBILE &bull; SAAS &bull; HEALTH &bull; E-COMMERCE &bull; </div></div>
+ <div class="soc" style="justify-content:center;margin-bottom:18px">
+  <a href="https://dribbble.com/" target="_blank" rel="noopener" aria-label="Dribbble"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5 7c5 1 10 1 14-2M3.500 13c6-2 11 0 14 6M9 3c3 4 5 9 5.500 17"/></svg></a>
+  <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+  <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6"/></svg></a>
+ </div>
+ <small>&copy; 2026 Timmy Nicholas (Dexter). Designed with a little web.</small>
+</footer>
+<dialog id="dg"><div id="dc"></div><button class="btn" type="button" id="dx">Close</button></dialog>
+<div id="toast" role="status"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const P=[
+{n:'Nova Pay',t:'Fintech, mobile',d:'A calm cross-border wallet for sending, saving and spending.',k:'p',a:'#e62429',b:'#2b59c3',w:1},
+{n:'Orbit DEX',t:'Web3, web',d:'A swap and liquidity dashboard that explains gas and slippage in plain words.',k:'b',a:'#7c3aed',b:'#0ea5e9'},
+{n:'Pawly',t:'Community, mobile',d:'Pet adoption with live shelter updates and a friendly chat.',k:'p',a:'#f59e0b',b:'#ef4444'},
+{n:'Pulse',t:'Health, mobile',d:'Daily habit tracking with gentle nudges and weekly insight cards.',k:'p',a:'#10b981',b:'#2b59c3'},
+{n:'Atlas',t:'SaaS, web',d:'An analytics workspace that turns raw logistics data into decisions.',k:'b',a:'#e62429',b:'#111a3a'}];
+const D=[
+{r:'Lead designer',y:'8 months',o:'+38% activation',c:'Cross-border payments felt risky to first-time users. I cut onboarding to three screens and showed fees before every send.'},
+{r:'Product designer',y:'5 months',o:'-45% swap errors',c:'Traders struggled with gas and slippage. I added plain-language previews and a one-tap safe mode.'},
+{r:'UI and motion',y:'3 months',o:'2x weekly adoptions',c:'Shelters needed fresh listings and adopters needed trust. I designed live status badges and a warm chat flow.'},
+{r:'Lead designer',y:'6 months',o:'62% weekly retention',c:'Habit apps lose people by week two. Gentle nudges and weekly insight cards kept them coming back.'},
+{r:'Design lead',y:'10 months',o:'-30% time to insight',c:'Dispatchers drowned in raw tables. I built a dashboard that surfaces the three things worth acting on.'}];
+const F=['mobile','web web3','mobile','mobile','web'];
+const bars=i=>Array.from({length:7},(_,n)=>`<i style="--h:${30+(i*37+n*53)%60}%;--n:${n}"></i>`).join('');
+$('#grid').innerHTML=P.map((p,i)=>{
+ const m=p.k=='p'?`<div class="ph"><i></i><b></b><u></u><u></u><u></u></div><div class="ph" style="transform:translateY(22px) rotate(5deg)"><i></i><u></u><b></b><u></u></div>`
+ :`<div class="br"><div class="sb"></div><div class="ch">${bars(i)}</div></div>`;
+ return `<article class="card rv${p.w?' w':''}" style="--i:${i+1}"><div class="stage" style="--a:${p.a};--b:${p.b}">${m}</div><h3>${p.n}</h3><div class="t">${p.t}</div><p>${p.d}</p></article>`}).join('');
+$$('.card').forEach(c=>{
+ c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*8+'deg');c.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*8+'deg')});
+ c.addEventListener('pointerleave',()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')})});
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.08});
+$$('.sec').forEach(s=>io.observe(s));
+const bar=$('#bar');
+addEventListener('scroll',()=>{bar.style.transform=`scaleX(${scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)})`},{passive:true});
+/* living web background */
+const cv=$('#web'),x=cv.getContext('2d');let mx=.72,my=.3,cx=mx,cy=my;
+function rs(){const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;x.setTransform(d,0,0,d,0,0)}
+addEventListener('resize',rs);rs();
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth;my=e.clientY/innerHeight});
+function tick(t){const w=innerWidth,h=innerHeight,R=Math.hypot(w,h),N=14;
+ cx+=(mx-cx)*.04;cy+=(my-cy)*.04;const ox=cx*w,oy=cy*h,s=t/60000;
+ x.clearRect(0,0,w,h);
+ x.strokeStyle='rgba('+getComputedStyle(document.documentElement).getPropertyValue('--web')+',.1)';x.lineWidth=1;
+ x.beginPath();for(let i=0;i<N;i++){const a=i/N*6.2832+s;x.moveTo(ox,oy);x.lineTo(ox+Math.cos(a)*R,oy+Math.sin(a)*R)}
+ for(let k=1;k<=8;k++){const r=k*k*R/80;for(let i=0;i<N;i++){const a0=i/N*6.2832+s,a1=(i+1)/N*6.2832+s,am=(a0+a1)/2;
+  x.moveTo(ox+Math.cos(a0)*r,oy+Math.sin(a0)*r);x.quadraticCurveTo(ox+Math.cos(am)*r*.9,oy+Math.sin(am)*r*.9,ox+Math.cos(a1)*r,oy+Math.sin(a1)*r)}}
+ x.stroke();if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+/* resume download */
+const RESUME=`<!doctype html><meta charset="utf-8"><title>Timmy Nicholas (Dexter) - Resume</title><style>body{font:15px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;color:#111}h1{margin:0}h2{border-bottom:2px solid #e62429;padding-bottom:4px;margin-top:28px}small{color:#555}</style>
+<h1>Timmy Nicholas</h1><p>Known as Dexter. UI/UX Designer for mobile, web and web3.<br><small>hello@dexter.design | dribbble.com | x.com | instagram.com</small></p>
+<h2>Experience</h2><p><b>Senior Product Designer, Nova Labs</b> (2023 to now)<br>Led design for a cross-border wallet, from research to launch.</p><p><b>Product Designer, Orbit Finance</b> (2021 to 2023)<br>Designed the DEX dashboard and NFT marketplace.</p><p><b>UI Designer, Studio Kite</b> (2019 to 2021)<br>Shipped mobile apps for startups in Africa and Europe.</p>
+<h2>Niches</h2><p>Fintech, Web3 and DeFi, E-commerce, Health, SaaS, Social</p>
+<h2>Tools</h2><p>Figma, Framer, ProtoPie, After Effects, Spline</p>`;
+let dl=null;
+if(window.claude)claude.use('downloads').then(m=>dl=m,()=>{});
+const tt=$('#toast');let tm;
+function toast(m){tt.textContent=m;tt.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>tt.classList.remove('on'),3200)}
+$$('.dl').forEach(b=>b.addEventListener('click',async()=>{
+ if(!dl)return toast('Resume download is not available in this view.');
+ try{await dl.save({filename:'Timmy-Nicholas-Resume.html',data:RESUME});toast('Resume saved')}
+ catch(e){if(!e||e.code!=='declined')toast('Could not save the resume. Try again.')}}));
+$('#home').classList.add('in');
+const dg=$('#dg');
+function show(i){const p=P[i],d=D[i];$('#dc').innerHTML=`<div class="stage" style="--a:${p.a};--b:${p.b};height:130px;border-radius:14px;margin-bottom:16px"></div><h3 style="font:600 22px Sora,sans-serif">${p.n}</h3><div style="color:var(--red);font-weight:600;font-size:13px">${p.t}</div><p style="color:var(--mut);margin-top:8px">${d.c}</p><div class="facts"><div><b>${d.r}</b>Role</div><div><b>${d.y}</b>Timeline</div><div><b>${d.o}</b>Result</div></div>`;dg.showModal()}
+$$('.card').forEach((c,i)=>{c.tabIndex=0;c.setAttribute('role','button');c.dataset.f=F[i];c.addEventListener('click',()=>show(i));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(i)}})});
+$('#dx').onclick=()=>dg.close();
+dg.addEventListener('click',e=>{if(e.target===dg)dg.close()});
+$$('.filters button').forEach(b=>b.onclick=()=>{$$('.filters button').forEach(x=>x.classList.toggle('on',x===b));$$('.card').forEach(c=>c.hidden=b.dataset.f!=='all'&&!c.dataset.f.split(' ').includes(b.dataset.f))});
+$('#cf').addEventListener('submit',e=>{e.preventDefault();e.target.reset();toast('Message sent. Dexter replies within 48 hours.')});
+</script>
+</body>
+</html>
